@@ -17,8 +17,14 @@ export default {
             3: "#808D97",
             4: "#F2F4F5"
           }
+        },
+        semantics: {
+          red: "#FF3739"
         }
-      }
+      },
+      fontFamily: {
+        "krub": ["Krub", "sans-serif"]
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
