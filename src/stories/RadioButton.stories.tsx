@@ -66,7 +66,7 @@ export const Group: Story = {
         {allFruits.map((fruit, index) => (
           <div key={index.toString()} className='flex items-center gap-2'>
             <RadioButton
-                name="fruit"
+                name="fruity"
                 value={fruit.name}
                 checked={fruit.checked}
                 onChange={() => onChange(index)}
