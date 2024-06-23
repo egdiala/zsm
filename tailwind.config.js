@@ -19,7 +19,12 @@ export default {
           }
         },
         semantics: {
-          red: "#FF3739"
+          red: "#FF3739",
+          amber: "#FE9603"
+        },
+        blue: {
+          1: "#058CEC",
+          2: "#82C5F5"
         }
       },
       fontFamily: {
