@@ -1,0 +1,44 @@
+.zsm-button {
+  @apply whitespace-nowrap flex gap-2 py-3 px-8 items-center justify-center h-fit disabled:cursor-not-allowed hover:outline-none hover:outline-0 focus:outline-none rounded transition-all duration-300 ease-out !important;
+}
+
+.zsm-button--primary {
+  @apply text-white font-bold text-base bg-green hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+}
+
+.zsm-button--secondary {
+  @apply text-green hover:text-white font-bold text-base bg-light-green hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+}
+
+.zsm-button--tertiary {
+  @apply text-green hover:text-white font-bold text-base bg-transparent hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+}
+
+.zsm-button--grey {
+  @apply text-grey-dark-1 hover:text-white font-medium text-sm bg-grey-dark-4 hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+}
+
+.zsm-button--ghost {
+  @apply text-grey-dark-1 hover:text-white font-medium text-sm bg-transparent hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+}
+
+.zsm-button--block {
+  @apply w-full !important;
+}
+
+.spinner {
+  animation-name: spin;
+  animation-duration: 800ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
