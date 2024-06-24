@@ -1,10 +1,12 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/core";
 import successLogo from "@/assets/verified_mark_3d.webp";
+import { routeVariants } from "@/constants/animateVariants";
 
 export const ChangePasswordSuccessPage: React.FC = () => {
     return (
-        <div className="grid gap-8 pb-6 pt-8 px-12 bg-white max-w-md w-full h-fit place-self-center rounded-xl">
+        <motion.div variants={routeVariants} initial='initial' animate='final' exit={routeVariants.initial} className="grid gap-8 p-8 bg-white max-w-md w-full h-fit place-self-center rounded-xl">
             <div className="grid gap-1 content-start">
                 <img src={successLogo} alt="success_logo" width={122} height={122} className="mx-auto" />
                 <div className="grid gap-1 justify-items-center">
@@ -14,6 +16,6 @@ export const ChangePasswordSuccessPage: React.FC = () => {
             </div>
             
             <Button type="submit" theme="primary" block>Sign In</Button>
-        </div>
+        </motion.div>
     )
 }
