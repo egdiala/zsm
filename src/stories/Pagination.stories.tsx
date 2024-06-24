@@ -32,7 +32,7 @@ export const Default: Story = {
     };
 
     const handleGoToPage = (pageNumber: string | number) => {
-      setPage(pageNumber);
+      setPage(pageNumber as number);
     };
 
     return (
@@ -50,5 +50,10 @@ export const Default: Story = {
   args: {
     currentPage: 1,
     totalPages: 10,
+    prev: () => { },
+    next: () => { },
+    goToPage(v) {
+        alert(v)
+    },
   },
 };

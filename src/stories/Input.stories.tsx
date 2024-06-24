@@ -55,7 +55,7 @@ export const WithError: Story = {
   render: (args) => {
     const [, setArgs] = useArgs();
     const onValueChange = (e: ChangeEvent<HTMLInputElement>) => {
-      args.onChange?.(e.target.value);
+      args.onChange?.(e.target.value as any);
       setArgs({ value: e.target.value });
     };
     return <div className="w-[50dvw] flex justify-center"><Input {...args} onChange={() => onValueChange} /></div>;
