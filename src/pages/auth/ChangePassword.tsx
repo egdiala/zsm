@@ -1,9 +1,11 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Button, PasswordInput } from "@/components/core";
+import { routeVariants } from "@/constants/animateVariants";
 
 export const ChangePasswordPage: React.FC = () => {
     return (
-        <div className="grid gap-7 pb-6 pt-8 px-12 bg-white max-w-md w-full h-fit place-self-center rounded-xl">
+        <motion.div variants={routeVariants} initial='initial' animate='final' exit={routeVariants.initial} className="grid gap-7 p-8 bg-white max-w-md w-full h-fit place-self-center rounded-xl">
             <div className="grid gap-1 justify-items-center">
                 <h1 className="font-bold text-[1.75rem] text-grey-dark-1 text-center">Change your password</h1>
                 <p className="font-normal text-sm text-grey-dark-1 text-center">Please change your default password to a new one.</p>
@@ -16,6 +18,6 @@ export const ChangePasswordPage: React.FC = () => {
                 </div>
                 <Button type="submit" theme="primary" block>Sign In</Button>
             </form>
-        </div>
+        </motion.div>
     )
 }

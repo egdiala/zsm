@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button, OtpInput } from "@/components/core";
+import { routeVariants } from "@/constants/animateVariants";
 
 export const VerifyEmailPage: React.FC = () => {
     const [otp, setOtp] = useState<string>("");
@@ -40,7 +42,7 @@ export const VerifyEmailPage: React.FC = () => {
 
     
     return (
-        <div className="grid gap-7 pb-6 pt-8 px-10 bg-white max-w-md w-full h-fit place-self-center rounded-xl">
+        <motion.div variants={routeVariants} initial='initial' animate='final' exit={routeVariants.initial} className="grid gap-7 p-8 bg-white max-w-md w-full h-fit place-self-center rounded-xl">
             <div className="grid gap-2 justify-items-center">
                 <h1 className="font-bold text-[1.75rem] text-grey-dark-1 text-center">Verify Your Email</h1>
                 <p className="font-normal text-sm text-grey-dark-1 text-center">
@@ -49,7 +51,7 @@ export const VerifyEmailPage: React.FC = () => {
                 </p>
             </div>
             <div className="flex flex-col gap-7">
-                <div className="grid gap-7">
+                <div className="grid gap-7 justify-items-center">
                     <OtpInput value={otp} onChange={(v: any) => setOtp(v)} />
                     <div className="flex items-center justify-center text-grey-0 text-base">
                         Didn’t receive a code? { isButtonDisabled ? <>Resend in <span className="font-bold text-green">&nbsp;{formatCountdown(countdown)}</span></> : <button type="button" className="font-bold text-green disabled:cursor-not-allowed" disabled={isButtonDisabled} onClick={handleResendClick}>&nbsp;Resend Now</button> }
@@ -57,6 +59,6 @@ export const VerifyEmailPage: React.FC = () => {
                 </div>
                 <Button type="submit" theme="primary" block>Verify</Button>
             </div>
-        </div>
+        </motion.div>
     )
 }
