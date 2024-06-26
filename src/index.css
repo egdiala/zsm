@@ -13,3 +13,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  @apply min-h-screen bg-grey-dark-1;
+}
+
+#root {
+  @apply min-h-screen;
+}
