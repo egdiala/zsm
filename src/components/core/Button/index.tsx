@@ -35,7 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   loading,
   block,
-  theme = "primary",
+  theme,
   children,
   ...props
 }) => {
@@ -62,7 +62,7 @@ export const Button: React.FC<ButtonProps> = ({
         </RenderIf>
         <RenderIf condition={!loading}>
             {children}
-            <RenderIf condition={theme.startsWith("arrow-cta-")}>
+            <RenderIf condition={theme?.startsWith("arrow-cta-")!}>
               <Icon icon="radix-icons:arrow-top-right" className="size-6 text-green" />
             </RenderIf>
         </RenderIf>
