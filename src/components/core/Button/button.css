@@ -1,25 +1,41 @@
 .zsm-button {
-  @apply whitespace-nowrap flex gap-2 py-3 px-8 items-center justify-center h-fit disabled:cursor-not-allowed hover:outline-none hover:outline-0 focus:outline-none rounded transition-all duration-300 ease-out !important;
+  @apply whitespace-nowrap flex gap-2 items-center h-fit disabled:cursor-not-allowed hover:outline-none hover:outline-0 focus:outline-none transition-all duration-300 ease-out !important;
 }
 
 .zsm-button--primary {
-  @apply text-white font-bold text-base bg-green hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+  @apply text-white font-bold text-base bg-green py-3 px-8 justify-center rounded hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
 }
 
 .zsm-button--secondary {
-  @apply text-green hover:text-white font-bold text-base bg-light-green hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+  @apply text-green hover:text-white font-bold text-base bg-light-green py-3 px-8 justify-center rounded hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
 }
 
 .zsm-button--tertiary {
-  @apply text-green hover:text-white font-bold text-base bg-transparent hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+  @apply text-green hover:text-white font-bold text-base bg-transparent py-3 px-8 justify-center rounded hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
 }
 
 .zsm-button--grey {
-  @apply text-grey-dark-1 hover:text-white font-medium text-sm bg-grey-dark-4 hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+  @apply text-grey-dark-1 hover:text-white font-medium text-sm bg-grey-dark-4 py-3 px-8 justify-center rounded hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
 }
 
 .zsm-button--ghost {
-  @apply text-grey-dark-1 hover:text-white font-medium text-sm bg-transparent hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+  @apply text-grey-dark-1 hover:text-white font-medium text-sm bg-transparent py-3 px-8 justify-center rounded hover:bg-grey-dark-1 disabled:bg-green/15 disabled:hover:ring-0 !important;
+}
+
+.zsm-button--arrow-cta-1 {
+  @apply rounded-lg bg-transparent text-base font-medium text-[#429200] hover:bg-light-green justify-center px-2 py-2.5 !important;
+}
+
+.zsm-button--arrow-cta-1 > svg {
+  @apply text-[#429200] !important;
+}
+
+.zsm-button--arrow-cta-2 {
+  @apply w-full rounded-lg bg-light-green border border-transparent text-base text-grey-dark-1 focus:text-white hover:border-green focus:bg-green focus:border-green justify-between px-4 py-[1.125rem] !important;
+}
+
+.zsm-button--arrow-cta-2:focus > svg {
+  @apply text-white !important;
 }
 
 .zsm-button--block {

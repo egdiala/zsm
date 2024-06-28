@@ -5,7 +5,7 @@ export const routeVariants = {
   },
   final: {
     opacity: 1,
-    y: 10,
+    y: 0,
     transition: {
       duration: 0.3,
       ease: "easeOut",

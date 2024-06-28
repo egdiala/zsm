@@ -1,7 +1,8 @@
 import React, { type ReactNode } from "react";
-import { RenderIf } from "../RenderIf";
-import { Loader } from "./Loader";
 import { cn } from "@/libs/cn";
+import { Loader } from "./Loader";
+import { Icon } from "@iconify/react";
+import { RenderIf } from "../RenderIf";
 import "./button.css";
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
@@ -16,7 +17,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   /**
    * What variant to render
    */
-  theme?: "primary" | "secondary" | "tertiary" | "grey" | "ghost";
+  theme?: "primary" | "secondary" | "tertiary" | "grey" | "ghost" | "arrow-cta-1" | "arrow-cta-2";
   /**
    * Renders child nodes passed into Button component
    */
@@ -34,7 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   loading,
   block,
-  theme = "primary",
+  theme,
   children,
   ...props
 }) => {
@@ -45,6 +46,8 @@ export const Button: React.FC<ButtonProps> = ({
       tertiary: "zsm-button--tertiary",
       grey: "zsm-button--grey",
       ghost: "zsm-button--ghost",
+      "arrow-cta-1": "zsm-button--arrow-cta-1",
+      "arrow-cta-2": "zsm-button--arrow-cta-2"
     },
   };
 
@@ -59,6 +62,9 @@ export const Button: React.FC<ButtonProps> = ({
         </RenderIf>
         <RenderIf condition={!loading}>
             {children}
+            <RenderIf condition={theme?.startsWith("arrow-cta-")!}>
+              <Icon icon="radix-icons:arrow-top-right" className="size-6 text-green" />
+            </RenderIf>
         </RenderIf>
     </button>
   );
