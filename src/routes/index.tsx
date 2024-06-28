@@ -14,7 +14,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" index element={<LocationProvider><HomePage /></LocationProvider>} />
+                <Route path="/" element={<LocationProvider><HomePage /></LocationProvider>} />
                 <Route path="auth/*" element={<AuthLayout><LocationProvider><AuthRoutes /></LocationProvider></AuthLayout>} />
             </Routes>
         </BrowserRouter>
