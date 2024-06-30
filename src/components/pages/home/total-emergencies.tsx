@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { cn } from "@/libs/cn";
 import { Button, LineChart } from "@/components/core";
 import { Icon } from "@iconify/react";
-import { Point } from "@nivo/line";
 
 interface TotalEmergenciesHomeProps {
     [x: string]: any
