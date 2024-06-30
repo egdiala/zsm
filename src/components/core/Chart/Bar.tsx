@@ -1,14 +1,9 @@
 import React, { useEffect } from "react"
 import { cn } from "@/libs/cn"
 import { useAnimate, useInView } from "framer-motion"
-import { ResponsiveLine, type LineSvgProps } from "@nivo/line"
+import { ResponsiveBar, type ResponsiveBarSvgProps } from "@nivo/bar"
 
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-export const LineChart: React.FC<LineSvgProps & { className: string }> = ({ className, ...props }) => {
+export const BarChart: React.FC<ResponsiveBarSvgProps<{}> & { className: string; }> = ({ className, ...props }) => {
     const [scope, animate] = useAnimate()
     const isInView = useInView(scope, { once: true })
     
@@ -26,7 +21,7 @@ export const LineChart: React.FC<LineSvgProps & { className: string }> = ({ clas
     },[animate, isInView, scope])
     return (
         <div ref={scope} className={cn("w-full h-full", className)}>
-            <ResponsiveLine {...props} />
+            <ResponsiveBar {...props}  />
         </div>
     )
 }
