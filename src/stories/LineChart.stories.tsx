@@ -18,46 +18,46 @@ export const ResponsiveLine: Story = {
   render: function Component(args) {
 
     return (
-            <LineChart
-                className="w-full h-[48dvh] flex justify-center"
-                margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-                xScale={{ type: "point" }}
-                colors={"hsla(93, 100%, 29%, 1)"}
-                yScale={{
-                    type: "linear",
-                    min: "auto",
-                    max: "auto",
-                    stacked: true,
-                    reverse: false
-                }}
-                yFormat=" >-.2f"
-                curve="natural"
-                axisTop={null}
-                axisRight={null}
-                axisBottom={{
-                    tickSize: 5,
-                    tickPadding: 5,
-                    tickRotation: 0,
-                    legend: "",
-                    legendOffset: 36,
-                    legendPosition: "middle",
-                    truncateTickAt: 0
-                }}
-                axisLeft={null}
-                enableGridX={false}
-                enableGridY={false}
-                pointSize={11}
-                pointColor={{ from: "color", modifiers: [] }}
-                pointBorderWidth={2}
-                pointBorderColor={"white"}
-                pointLabel="data.yFormatted"
-                crosshairType="bottom"
-                enableTouchCrosshair={true}
-                useMesh={true}
-                pointLabelYOffset={-12}
-                legends={[]}
-                data={args.data}
-            />
+        <LineChart
+            className="w-full h-[48dvh] flex justify-center"
+            margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+            xScale={{ type: "point" }}
+            colors={"hsla(93, 100%, 29%, 1)"}
+            yScale={{
+                type: "linear",
+                min: "auto",
+                max: "auto",
+                stacked: true,
+                reverse: false
+            }}
+            yFormat=" >-.2f"
+            curve="natural"
+            axisTop={null}
+            axisRight={null}
+            axisBottom={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: "",
+                legendOffset: 36,
+                legendPosition: "middle",
+                truncateTickAt: 0
+            }}
+            axisLeft={null}
+            enableGridX={false}
+            enableGridY={false}
+            pointSize={11}
+            pointColor={{ from: "color", modifiers: [] }}
+            pointBorderWidth={2}
+            pointBorderColor={"white"}
+            pointLabel="data.yFormatted"
+            crosshairType="bottom"
+            enableTouchCrosshair={true}
+            useMesh={true}
+            pointLabelYOffset={-12}
+            legends={[]}
+            data={args.data}
+        />
     );
   },
   args: {
