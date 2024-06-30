@@ -18,8 +18,8 @@ export const ResponsiveLine: Story = {
   render: function Component(args) {
 
     return (
-        <div className="w-full h-[48dvh] flex justify-center">
             <LineChart
+                className="w-full h-[48dvh] flex justify-center"
                 margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
                 xScale={{ type: "point" }}
                 colors={"hsla(93, 100%, 29%, 1)"}
@@ -56,9 +56,8 @@ export const ResponsiveLine: Story = {
                 useMesh={true}
                 pointLabelYOffset={-12}
                 legends={[]}
-                {...args}
+                data={args.data}
             />
-        </div>
     );
   },
   args: {
@@ -117,6 +116,7 @@ export const ResponsiveLine: Story = {
             }
             ]
         }
-    ]
+      ],
+      className: ""
   },
 };
