@@ -91,15 +91,15 @@ export const Dashboard: React.FC<DashboardHomeProps> = ({ className }) => {
                             <div className="flex items-center gap-1">
                                 <div className="bg-green size-1.5 rounded" />
                                 <span className="font-bold text-xs w-16">Total</span>
-                                <span className="text-xs w-16 text-right">{(point.x + point.y).toFixed()}</span> 
+                                <span className="text-xs w-16 text-right">{(point.data.y as number).toFixed()} - {point.data.x as string}</span> 
                             </div>
                             <div className="flex items-center justify-end gap-1">
                                 <span className="font-bold text-xs w-16">Resolved</span>
-                                <span className="text-xs w-16 text-right">{(point.x).toFixed()}</span> 
+                                <span className="text-xs w-16 text-right">{point.data.x as string}</span> 
                             </div>
                             <div className="flex items-center justify-end gap-1">
                                 <span className="font-bold text-xs w-16">Unresolved</span>
-                                <span className="text-xs w-16 text-right">{(point.y).toFixed()}</span> 
+                                <span className="text-xs w-16 text-right">{(point.data.y as number).toFixed()}</span> 
                             </div>
                             <div className="size-3 absolute inset-x-full left-[46.3%] -bottom-1 rotate-45 flex items-center justify-center bg-grey-dark-1" />
                         </div>
