@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { pageVariants } from "@/constants/animateVariants";
 import { Accounts, ActivePromo, AssetCo, Dashboard, IDVerification, LastActivity, Notifications, Referrals, SendNotifications, TotalEmergencies, UserCard } from "@/components/pages/home";
 
 export const HomePage: React.FC = () => {
@@ -10,7 +12,7 @@ export const HomePage: React.FC = () => {
         { name: "Wade Warren", email: "example@email.com", phone: "0801 234 5678"},
     ]
     return (
-        <div className="px-4 md:px-8 pt-4 md:pt-8 pb-6 md:pb-12 max-w-[1800px] w-full mx-auto h-full">
+        <motion.div variants={pageVariants} initial='initial' animate='final' exit={pageVariants.initial} className="px-4 md:px-8 pt-4 md:pt-8 pb-6 md:pb-12 max-w-[1800px] w-full mx-auto h-full">
             <div className="grid lg:grid-flow-row-dense grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                 <Dashboard className="lg:col-span-2" />
                 <Notifications />
@@ -26,6 +28,6 @@ export const HomePage: React.FC = () => {
                     <ActivePromo className="w-full" />
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

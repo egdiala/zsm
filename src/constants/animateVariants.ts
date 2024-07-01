@@ -12,3 +12,16 @@ export const routeVariants = {
     },
   },
 };
+
+export const pageVariants = {
+  initial: {
+    opacity: 0,
+  },
+  final: {
+    opacity: 1,
+    transition: {
+      duration: 0.35,
+      ease: "easeOut",
+    },
+  },
+};
