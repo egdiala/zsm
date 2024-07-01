@@ -5,4 +5,5 @@ export * from "./Input";
 export * from "./Pagination";
 export * from "./RadioButton";
 export * from "./RenderIf";
+export * from "./TableActions"
 export * from "./Textarea";

@@ -25,7 +25,8 @@ export default {
         },
         blue: {
           1: "#058CEC",
-          2: "#82C5F5"
+          2: "#82C5F5",
+          4: "#F2F9FE"
         }
       },
       fontFamily: {
