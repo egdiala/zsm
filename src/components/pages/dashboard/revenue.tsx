@@ -4,11 +4,11 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import { LineChart, TableAction } from "@/components/core";
 
-interface RevenueHomeProps {
+interface RevenueDashboardProps {
     [x: string]: any
 }
 
-export const Revenue: React.FC<RevenueHomeProps> = ({ className }) => {
+export const Revenue: React.FC<RevenueDashboardProps> = ({ className }) => {
     const data = [
         {
             "id": "norway",
@@ -83,7 +83,7 @@ export const Revenue: React.FC<RevenueHomeProps> = ({ className }) => {
             </div>
             <LineChart
                 data={data}
-                className="w-full h-48"
+                className="w-full h-48 md:h-full md:min-h-48"
                 margin={{ top: 25, right: 10, bottom: 25, left: 10 }}
                 xScale={{ type: "point" }}
                 colors={"hsla(93, 100%, 29%, 1)"}
