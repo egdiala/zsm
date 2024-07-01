@@ -26,6 +26,7 @@ export const ResponsiveLine: Story = {
                 "pending value",
             ]}
             indexBy="label"
+            colors={["hsla(93, 92%, 34%, 1)", "hsla(205, 85%, 74%, 1)", "hsla(35, 99%, 50%, 1)"]}
             margin={{ top: 50, right: 60, bottom: 50, left: 60 }}
             padding={0.85}
             valueScale={{ type: "linear" }}

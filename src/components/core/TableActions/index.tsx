@@ -23,7 +23,7 @@ interface TableActionProps extends React.HTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * Button component for user interaction
+ * Table Action component for user interaction
  */
 export const TableAction: React.FC<TableActionProps> = ({
   className,
