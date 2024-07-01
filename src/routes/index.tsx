@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { AuthRoutes } from "./modules";
+import { AuthRoutes, UserRoutes } from "./modules";
 import AuthLayout from "@/layouts/AuthLayout";
+import ProtectedLayout from "@/layouts/ProtectedLayout";
 import { AnimatePresence } from "framer-motion";
-import { HomePage } from "@/pages";
 
 
 function LocationProvider({ children }: { children: ReactNode }) {
@@ -14,7 +14,7 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<LocationProvider><HomePage /></LocationProvider>} />
+                <Route path="/*" element={<ProtectedLayout><LocationProvider><UserRoutes /></LocationProvider></ProtectedLayout>} />
                 <Route path="auth/*" element={<AuthLayout><LocationProvider><AuthRoutes /></LocationProvider></AuthLayout>} />
             </Routes>
         </BrowserRouter>

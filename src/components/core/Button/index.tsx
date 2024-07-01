@@ -17,7 +17,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   /**
    * What variant to render
    */
-  theme?: "primary" | "secondary" | "tertiary" | "grey" | "ghost" | "arrow-cta-1" | "arrow-cta-2";
+  theme?: "primary" | "secondary" | "tertiary" | "grey" | "white" | "ghost" | "arrow-cta-1" | "arrow-cta-2";
   /**
    * Renders child nodes passed into Button component
    */
@@ -45,6 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
       secondary: "zsm-button--secondary",
       tertiary: "zsm-button--tertiary",
       grey: "zsm-button--grey",
+      white: "zsm-button--white",
       ghost: "zsm-button--ghost",
       "arrow-cta-1": "zsm-button--arrow-cta-1",
       "arrow-cta-2": "zsm-button--arrow-cta-2"

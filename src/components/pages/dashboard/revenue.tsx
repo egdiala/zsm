@@ -1,14 +1,14 @@
 import React from "react";
 import { cn } from "@/libs/cn";
-import { useNavigate } from "react-router-dom";
-import { Button, LineChart } from "@/components/core";
+import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
+import { LineChart, TableAction } from "@/components/core";
 
-interface DashboardHomeProps {
+interface RevenueHomeProps {
     [x: string]: any
 }
 
-export const Dashboard: React.FC<DashboardHomeProps> = ({ className }) => {
-    const navigate = useNavigate()
+export const Revenue: React.FC<RevenueHomeProps> = ({ className }) => {
     const data = [
         {
             "id": "norway",
@@ -66,17 +66,24 @@ export const Dashboard: React.FC<DashboardHomeProps> = ({ className }) => {
         }
     ]
     return (
-        <div className={cn("flex flex-col p-6 gap-[3.125rem] rounded-2xl bg-white", className)}>
+        <div className={cn("flex flex-col p-5 gap-[3.125rem] rounded-2xl bg-white", className)}>
             <div className="flex items-start justify-between">
-                <div className="grid">
-                    <h1 className="text-grey-dark-1 text-xl font-semibold">Dashboard</h1>
-                    <p className="text-grey-dark-2 text-sm">View snapshot data on all asset companies</p>
+                <div className="flex flex-col gap-2 rounded-lg bg-blue-4 px-4 py-2">
+                    <span className="text-grey-dark-1 text-sm">Total Revenue</span>
+                    <h1 className="text-grey-dark-1 text-3xl">₦56,887</h1>
+                    <Link to="#" className="flex items-center gap-1 text-green text-xs">
+                        See Revenue module
+                        <Icon icon="radix-icons:arrow-top-right" className="size-3 text-[#429200]" />
+                    </Link>
                 </div>
-                <Button theme="arrow-cta-1" onClick={() => navigate("/dashboard")}><span className="hidden lg:flex">View Dashboard</span></Button>
+                <TableAction theme="secondary">
+                    <Icon icon="ion:funnel" className="size-3" />
+                    Filter
+                </TableAction>
             </div>
             <LineChart
                 data={data}
-                className="w-full h-48 md:h-full"
+                className="w-full h-48"
                 margin={{ top: 25, right: 10, bottom: 25, left: 10 }}
                 xScale={{ type: "point" }}
                 colors={"hsla(93, 100%, 29%, 1)"}
