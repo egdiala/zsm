@@ -1,0 +1,27 @@
+.zsm-table-action--primary {
+  @apply bg-green border border-green hover:bg-grey-dark-1 hover:border-grey-dark-1 text-white rounded py-3 px-2 text-sm font-medium !important;
+}
+
+.zsm-table-action--secondary {
+  @apply bg-light-green border border-light-green hover:border-green hover:bg-green text-grey-dark-1 hover:text-white rounded py-3 px-2 text-sm font-medium !important;
+}
+
+.zsm-table-action--tertiary {
+  @apply bg-transparent border border-green hover:bg-green text-green hover:text-white rounded py-3 px-2 text-sm font-medium !important;
+}
+
+.zsm-table-action--grey {
+  @apply bg-grey-dark-4 hover:bg-light-green border border-grey-dark-4 hover:border-green text-grey-dark-1 hover:text-green rounded py-3 px-2 text-sm font-medium !important;
+}
+
+.zsm-table-action--ghost {
+  @apply bg-transparent border border-transparent hover:border-light-green hover:bg-light-green text-green rounded py-3 px-2 text-sm font-medium !important;
+}
+
+.zsm-table-action--secondary > svg {
+  @apply text-grey-dark-2 !important;
+}
+
+.zsm-table-action--secondary:hover > svg {
+  @apply text-white !important;
+}
