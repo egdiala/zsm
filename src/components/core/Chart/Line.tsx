@@ -3,11 +3,11 @@ import { cn } from "@/libs/cn"
 import { useAnimate, useInView } from "framer-motion"
 import { ResponsiveLine, type LineSvgProps } from "@nivo/line"
 
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
+/**
+ * Line Chart for displaying data. 
+ * 
+ * Disclaimer 👀... Make sure parent container has a defined height, otherwise height will be 0 and no chart will be rendered.
+ */
 export const LineChart: React.FC<LineSvgProps & { className: string }> = ({ className, ...props }) => {
     const [scope, animate] = useAnimate()
     const isInView = useInView(scope, { once: true })
