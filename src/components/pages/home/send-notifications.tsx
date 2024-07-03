@@ -9,7 +9,7 @@ interface SendNotificationsHomeProps {
 export const SendNotifications: React.FC<SendNotificationsHomeProps> = ({ className }) => {
     const verificationButtons = ["All Drivers", "All Riders", "Selected Drivers", "Selected Riders"];
     return (
-        <div className={cn("flex flex-col p-6 gap-[3.125rem] rounded-2xl bg-white", className)}>
+        <div className={cn("flex flex-col p-6 gap-[3.125rem] justify-between rounded-2xl bg-white", className)}>
             <div className="grid">
                 <h1 className="text-grey-dark-1 text-xl font-semibold">Send Notification</h1>
                 <p className="text-grey-dark-3 text-sm">Send notification to users on the platform</p>
