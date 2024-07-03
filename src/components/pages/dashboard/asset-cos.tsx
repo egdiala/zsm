@@ -30,10 +30,10 @@ export const AssetCos: React.FC<AssetCoDashboardProps> = ({ assets, className })
                     <thead>
                         <tr className="bg-[#F5FBFD]">
                             <th className="text-grey-dark-1 font-semibold text-xs py-2.5 px-2 text-left">Asset Co</th>
-                            <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-right">Total Trips</th>
-                            <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-right">Total Vehicles</th>
-                            <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-right">Total Drivers</th>
-                            <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-right">Total Revenue</th>
+                            <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-right whitespace-nowrap">Total Trips</th>
+                            <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-right whitespace-nowrap">Total Vehicles</th>
+                            <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-right whitespace-nowrap">Total Drivers</th>
+                            <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-right whitespace-nowrap">Total Revenue</th>
                         </tr>
                     </thead>
                     <tbody>
