@@ -55,7 +55,7 @@ export const AdminAccountsPage: React.FC = () => {
                 </Button>
             </div>
             <div className="flex flex-col gap-4 bg-white px-6 py-[1.375rem] rounded-md">
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-4">
                         <h1 className="whitespace-nowrap font-semibold text-xl text-grey-dark-1">10 Members</h1>
                         <TableAction theme="secondary">
