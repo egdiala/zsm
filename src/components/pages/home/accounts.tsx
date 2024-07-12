@@ -11,7 +11,7 @@ interface AccountsHomeProps {
 export const Accounts: React.FC<AccountsHomeProps> = ({ className }) => {
     const navigate = useNavigate();
     const accountsButtons = [
-        { label: "Add Admin Account", action: () => { } },
+        { label: "Add Admin Account", action: () => navigate("/accounts")  },
         { label: "Add New Role", action: () => navigate("/roles/create") }
     ];
     return (
