@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { BulkInvite, DeleteAdmin, EditAdmin, InviteAdmin } from "@/components/pages/accounts";
 import { pageVariants } from "@/constants/animateVariants";
-import { Button, Checkbox, Input, Pagination, TableAction } from "@/components/core";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import { Button, Checkbox, Input, Pagination, TableAction } from "@/components/core";
 
 export const AdminAccountsPage: React.FC = () => {
     const navigate = useNavigate()
+    const [toggleModals, setToggleModals] = useState({
+        openBulkInvite: false,
+        openEditAdmin: false,
+        openInviteAdmin: false,
+        openDeleteAdmin: false
+    })
     const roles = [
         {
             name: "Ifeanyi Seye",
@@ -58,7 +65,7 @@ export const AdminAccountsPage: React.FC = () => {
                         <Input type="search" placeholder="Search" iconLeft="ph:magnifying-glass" />
                     </div>
                     <div className="flex items-center gap-2">
-                        <Button theme="ghost">
+                        <Button theme="ghost" onClick={() => setToggleModals((prev) => ({ ...prev, openDeleteAdmin: true }))}>
                             <Icon icon="ph:trash" className="size-4" />
                             Delete
                         </Button>
@@ -74,10 +81,16 @@ export const AdminAccountsPage: React.FC = () => {
 
                             <MenuItems transition anchor="bottom end" className="w-52 origin-top-right rounded bg-white mt-0.5 px-2.5 py-[0.875rem] text-sm text-grey-dark-2 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0">
                                 <div className="mb-4 text-base font-semibold text-grey-dark-1">Add Member(s)</div>
-                                <MenuItem as="button" className="group flex w-full items-center gap-2 rounded-lg p-2 data-[focus]:bg-white/10 mb-1">
+                                <MenuItem as="button" className="group flex w-full items-center gap-2 rounded-lg p-2 data-[focus]:bg-white/10 mb-1" onClick={() => setToggleModals((prev) => ({
+                                    ...prev,
+                                    openInviteAdmin: true,
+                                }))}>
                                     Add a Personnel
                                 </MenuItem>
-                                <MenuItem as="button" className="group flex w-full items-center gap-2 rounded-lg p-2 data-[focus]:bg-white/10">
+                                <MenuItem as="button" className="group flex w-full items-center gap-2 rounded-lg p-2 data-[focus]:bg-white/10" onClick={() => setToggleModals((prev) => ({
+                                    ...prev,
+                                    openBulkInvite: true,
+                                }))}>
                                     Bulk Upload
                                 </MenuItem>
                             </MenuItems>
@@ -135,11 +148,17 @@ export const AdminAccountsPage: React.FC = () => {
                                             </td>
                                             <td className="pr-4 py-3.5 text-right">
                                                 <div className="flex items-center gap-4 whitespace-nowrap">
-                                                    <button type="button" className="flex items-center px-1 gap-1 text-sm text-grey-dark-1" onClick={() => {}}>
+                                                    <button type="button" className="flex items-center px-1 gap-1 text-sm text-grey-dark-1" onClick={() => setToggleModals((prev) => ({
+                                                        ...prev,
+                                                        openEditAdmin: true,
+                                                    }))}>
                                                         <Icon icon="ph:pencil-simple" className="size-4" />
                                                         Edit
                                                     </button>
-                                                    <button type="button" className="flex items-center px-1 gap-1 text-sm text-semantics-red">
+                                                    <button type="button" className="flex items-center px-1 gap-1 text-sm text-semantics-red" onClick={() => setToggleModals((prev) => ({
+                                                        ...prev,
+                                                        openDeleteAdmin: true,
+                                                    }))}>
                                                         <Icon icon="ph:trash" className="size-4" />
                                                         Delete
                                                     </button>
@@ -154,6 +173,22 @@ export const AdminAccountsPage: React.FC = () => {
                     <Pagination currentPage={1} totalPages={1} prev={() => {}} next={() => {}} goToPage={() => {}} />
                 </div>
             </div>
+            <BulkInvite isOpen={toggleModals.openBulkInvite} close={() => setToggleModals((prev) => ({
+                ...prev,
+                openBulkInvite: false,
+            }))} />
+            <DeleteAdmin isOpen={toggleModals.openDeleteAdmin} close={() => setToggleModals((prev) => ({
+                ...prev,
+                openDeleteAdmin: false,
+            }))} />
+            <EditAdmin isOpen={toggleModals.openEditAdmin} close={() => setToggleModals((prev) => ({
+                ...prev,
+                openEditAdmin: false,
+            }))} />
+            <InviteAdmin isOpen={toggleModals.openInviteAdmin} close={() => setToggleModals((prev) => ({
+                ...prev,
+                openInviteAdmin: false,
+            }))} />
         </motion.div>
     )
 }
