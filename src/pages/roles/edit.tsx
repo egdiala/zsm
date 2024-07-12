@@ -12,12 +12,12 @@ export const EditRolePage: React.FC = () => {
     const permissions = [
         {
             label: "Create",
-            class: "grid-rows-none grid-cols-2 lg:grid-rows-3",
+            class: "grid-rows-none grid-cols-2 lg:grid-cols-none lg:grid-rows-3",
             items: ["Vehicle", "Partners", "Drivers", "Maintenance & repairs", "Personnel", "Promo Code", "Ticket", "Emergency Emails", "Emergency", "Emergency Numbers", "Partners"]
         },
         {
             label: "Read",
-            class: "grid-rows-none grid-cols-2 lg:grid-rows-6",
+            class: "grid-rows-none grid-cols-2 lg:grid-cols-none lg:grid-rows-6",
             items: [
                 "Dashboard", "Users", "Riders", "Personnels", "Drivers", "Vehicles",
                 "Trip Manifest", "FDTs and Schedules", "Emergency", "Ticket", "Partners", "Support",
@@ -27,12 +27,12 @@ export const EditRolePage: React.FC = () => {
         },
         {
             label: "Update",
-            class: "grid-rows-none grid-cols-2 lg:grid-rows-2",
+            class: "grid-rows-none grid-cols-2 lg:grid-cols-none lg:grid-rows-2",
             items: ["Driver Status", "Vehicles", "Emergency Status", "Maintenance & repairs", "Ticket Status", "Promo Codes"]
         },
         {
             label: "Delete",
-            class: "grid-rows-none grid-cols-2 lg:grid-rows-1",
+            class: "grid-rows-none grid-cols-2 lg:grid-cols-none lg:grid-rows-1",
             items: ["User", "Emergency Number", "Emergency Email", "Promo Code"]
         },
     ]
