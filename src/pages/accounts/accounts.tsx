@@ -3,11 +3,37 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { pageVariants } from "@/constants/animateVariants";
-import { Button, Input, TableAction } from "@/components/core";
+import { Button, Checkbox, Input, Pagination, TableAction } from "@/components/core";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 export const AdminAccountsPage: React.FC = () => {
     const navigate = useNavigate()
+    const roles = [
+        {
+            name: "Ifeanyi Seye",
+            phone: "0801 234 5678",
+            email: "example@email.com",
+            role: "Product Manager",
+            permissions: [
+                { label: "Create", value: 0 },
+                { label: "Read", value: 18 },
+                { label: "Update", value: 0 },
+                { label: "Delete", value: 0 },
+            ]
+        },
+        {
+            name: "Stephen Diala",
+            phone: "0801 234 5678",
+            email: "example@email.com",
+            role: "Snr. Frontend Engineer",
+            permissions: [
+                { label: "Create", value: 0 },
+                { label: "Read", value: 0 },
+                { label: "Update", value: 18 },
+                { label: "Delete", value: 0 },
+            ]
+        }
+    ]
 
     return (
         <motion.div variants={pageVariants} initial='initial' animate='final' exit={pageVariants.initial} className="flex flex-col gap-6 px-4 md:px-8 pt-9 md:pt-[3.25rem] pb-7 md:pb-9 max-w-[1800px] w-full mx-auto h-full">
@@ -57,6 +83,75 @@ export const AdminAccountsPage: React.FC = () => {
                             </MenuItems>
                         </Menu>
                     </div>
+                </div>
+                <div className="flex flex-col gap-24">
+                    <div className="lg:w-full lg:left-auto lg:relative lg:right-auto left-0 right-0 overflow-x-scroll scrollbar-hide">
+                        <table className="w-full table-auto">
+                            <thead>
+                                <tr className="bg-[#F5FBFD]">
+                                    <th className="text-grey-dark-1 font-semibold text-xs py-2.5 px-2 text-left">Name</th>
+                                    <th className="text-grey-dark-1 font-semibold text-xs py-2.5 px-2 text-left">Phone Number</th>
+                                    <th className="text-grey-dark-1 font-semibold text-xs py-2.5 px-2 text-left">Email</th>
+                                    <th className="text-grey-dark-1 font-semibold text-xs py-2.5 px-2 text-left">Role</th>
+                                    <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-left whitespace-nowrap">Permissions</th>
+                                    <th className="text-grey-dark-1 font-semibold text-xs py-2.5 pr-4 text-left whitespace-nowrap">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    roles.map((role) =>
+                                        <tr className="group rounded bg-white hover:bg-light-green transition-all ease-out duration-300" key={role.name}>
+                                            <td className="pl-1.5 pr-4 lg:pr-0 py-3.5 text-left">
+                                                <div className="flex items-center gap-2 text-sm text-grey-dark-2 group-hover:text-grey-dark-1 whitespace-nowrap">
+                                                    <Checkbox name={""} checked={false} />
+                                                    {role.name}
+                                                </div>
+                                            </td>
+                                            <td className="pl-1.5 pr-4 lg:pr-0 py-3.5 text-left">
+                                                <div className="flex items-center text-sm text-grey-dark-2 group-hover:text-grey-dark-1 whitespace-nowrap">
+                                                    {role.phone}
+                                                </div>
+                                            </td>
+                                            <td className="pl-1.5 pr-4 lg:pr-0 py-3.5 text-left">
+                                                <div className="flex items-center text-sm text-grey-dark-2 group-hover:text-grey-dark-1 whitespace-nowrap">
+                                                    {role.email}
+                                                </div>
+                                            </td>
+                                            <td className="pl-1.5 pr-4 lg:pr-0 py-3.5 text-left">
+                                                <div className="flex items-center text-sm text-grey-dark-2 group-hover:text-grey-dark-1 whitespace-nowrap">
+                                                    {role.role}
+                                                </div>
+                                            </td>
+                                            <td className="pr-4 py-3.5 text-right">
+                                                <div className="flex items-center gap-8">
+                                                    {
+                                                        role.permissions.map((permission) =>
+                                                        <div className="py-1 px-2 rounded-full text-xs/3.5 bg-grey-dark-4 text-grey-dark-1 whitespace-nowrap">
+                                                            {permission.value} {permission.label}
+                                                        </div>
+                                                        )
+                                                    }
+                                                </div>
+                                            </td>
+                                            <td className="pr-4 py-3.5 text-right">
+                                                <div className="flex items-center gap-4 whitespace-nowrap">
+                                                    <button type="button" className="flex items-center px-1 gap-1 text-sm text-grey-dark-1" onClick={() => {}}>
+                                                        <Icon icon="ph:pencil-simple" className="size-4" />
+                                                        Edit
+                                                    </button>
+                                                    <button type="button" className="flex items-center px-1 gap-1 text-sm text-semantics-red">
+                                                        <Icon icon="ph:trash" className="size-4" />
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <Pagination currentPage={1} totalPages={1} prev={() => {}} next={() => {}} goToPage={() => {}} />
                 </div>
             </div>
         </motion.div>
