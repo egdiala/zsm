@@ -11,13 +11,13 @@ export const ViewRolePage: React.FC = () => {
     const navigate = useNavigate()
     const permissions = [
         {
-            label: "Create Permissions",
-            class: "grid-rows-3",
+            label: "Create",
+            class: "grid-rows-none grid-cols-2 lg:grid-cols-none lg:grid-rows-3",
             items: ["Vehicle", "Partners", "Drivers", "Maintenance & repairs", "Personnel", "Promo Code", "Ticket", "Emergency Emails", "Emergency", "Emergency Numbers", "Partners"]
         },
         {
-            label: "Read Permissions",
-            class: "grid-rows-6",
+            label: "Read",
+            class: "grid-rows-none grid-cols-2 lg:grid-cols-none lg:grid-rows-6",
             items: [
                 "Dashboard", "Users", "Riders", "Personnels", "Drivers", "Vehicles",
                 "Trip Manifest", "FDTs and Schedules", "Emergency", "Ticket", "Partners", "Support",
@@ -26,13 +26,13 @@ export const ViewRolePage: React.FC = () => {
             ]
         },
         {
-            label: "Update Permissions",
-            class: "grid-rows-2",
+            label: "Update",
+            class: "grid-rows-none grid-cols-2 lg:grid-cols-none lg:grid-rows-2",
             items: ["Driver Status", "Vehicles", "Emergency Status", "Maintenance & repairs", "Ticket Status", "Promo Codes"]
         },
         {
-            label: "Delete Permissions",
-            class: "grid-rows-1",
+            label: "Delete",
+            class: "grid-rows-none grid-cols-2 lg:grid-rows-1",
             items: ["User", "Emergency Number", "Emergency Email", "Promo Code"]
         },
     ]
@@ -63,10 +63,10 @@ export const ViewRolePage: React.FC = () => {
                 <div className="grid gap-8">
                     <div className="flex flex-col rounded gap-4 w-full bg-blue-4 px-8 py-6">
                         <h3 className="text-blue-1 font-medium text-sm">ABOUT</h3>
-                        <div className="flex items-center gap-20">
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-20">
                             {
                                 abouts.map((about) =>
-                                <div className="grid gap-2 w-36" key={about.label}>
+                                <div className="grid gap-2" key={about.label}>
                                     <h5 className="text-grey-dark-3 text-sm">{about.label}</h5>
                                     <p className="text-grey-dark-1 font-medium text-sm">{about.value}</p>
                                 </div>
@@ -80,7 +80,7 @@ export const ViewRolePage: React.FC = () => {
                             <Disclosure as="div" className="border border-[#E1F4F4] rounded" defaultOpen={true}>
                                 <div className="group bg-[#E6F6F6] pl-4 pr-3 py-2.5 flex w-full items-center justify-between">
                                     <div className="flex items-center gap-6">
-                                        <span className="text-base font-medium text-grey-dark-1">{permission.label}</span>
+                                        <span className="text-base font-medium text-grey-dark-1 inline-flex">{permission.label}&nbsp;<span className="hidden md:block"> Permissions</span></span>
                                         <div className="text-sm px-2 py-0.5 bg-[#D5F0F7] text-grey-dark-1 rounded-full">0 Selected</div>
                                     </div>
                                     <div className="flex items-center gap-10">
@@ -93,7 +93,7 @@ export const ViewRolePage: React.FC = () => {
                                         </DisclosureButton>
                                     </div>
                                 </div>
-                                <DisclosurePanel transition className={cn("grid grid-flow-col gap-y-4 pt-4 px-4 pb-8 origin-top transition duration-300 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0", permission.class)}>
+                                <DisclosurePanel transition className={cn("grid lg:grid-flow-col gap-y-4 pt-4 px-4 pb-8 origin-top transition duration-300 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0", permission.class)}>
                                     {
                                         permission.items.map((item) =>
                                             <div className="flex items-center gap-2 p-2">
@@ -109,7 +109,7 @@ export const ViewRolePage: React.FC = () => {
                         <Disclosure as="div" className="border border-[#E1F4F4] rounded" defaultOpen={true}>
                             <div className="group bg-[#FFE9E9] pl-4 pr-3 py-2.5 flex w-full items-center justify-between">
                                 <div className="flex items-center gap-6">
-                                    <span className="text-base font-medium text-grey-dark-1">{permissions[3].label}</span>
+                                    <span className="text-base font-medium text-grey-dark-1 inline-flex">{permissions[3].label}&nbsp;<span className="hidden md:block"> Permissions</span></span>
                                     <div className="text-sm px-2 py-0.5 bg-semantics-red text-white rounded-full">0 Selected</div>
                                 </div>
                                 <div className="flex items-center gap-10">
@@ -122,7 +122,7 @@ export const ViewRolePage: React.FC = () => {
                                     </DisclosureButton>
                                 </div>
                             </div>
-                            <DisclosurePanel transition className={cn("grid grid-flow-col gap-y-4 pt-4 px-4 pb-8 origin-top transition duration-300 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0", permissions[3].class)}>
+                            <DisclosurePanel transition className={cn("grid lg:grid-flow-col gap-y-4 pt-4 px-4 pb-8 origin-top transition duration-300 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0", permissions[3].class)}>
                                 {
                                     permissions[3].items.map((item) =>
                                         <div className="flex items-center gap-2 p-2">
