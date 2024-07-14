@@ -115,7 +115,10 @@ export const RolesPage: React.FC = () => {
                                             </td>
                                             <td className="pr-4 py-3.5 text-right">
                                                 <div className="flex items-center gap-4 whitespace-nowrap">
-                                                    <button type="button" className="flex items-center px-1 gap-1 text-sm text-grey-dark-1" onClick={() => navigate("/roles/edit")}>
+                                                    <button type="button" className="flex items-center px-1 gap-1 text-sm text-grey-dark-1" onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        navigate("/roles/edit");
+                                                    }}>
                                                         <Icon icon="ph:pencil-simple" className="size-4" />
                                                         Edit
                                                     </button>
