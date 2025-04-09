@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { IconDashboard, IconMap, IconSetting, ZenoLogo } from "./icons"
+import { IconAlarmClock, IconCar, IconDashboard, IconMap, IconRoute, IconSetting, IconUsers, ZenoLogo } from "./icons"
 import { useLocation } from "react-router-dom"
 import { useMemo } from "react"
 
@@ -56,10 +56,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   
   const vehicleTripScheduleRoutes = useMemo(() => {
     return [
-      { title: "Asset Co", isActive: location.pathname === "/asset-co", url: "/asset-co" },
-      { title: "Vehicles", isActive: location.pathname === "/vehicles", url: "/vehicles" },
-      { title: "All Trips", isActive: location.pathname === "/trips", url: "/trips" },
-      { title: "Schedules", isActive: location.pathname === "/schedules", url: "/schedules" }
+      { title: "Asset Co", isActive: location.pathname === "/asset-co", url: "/asset-co", icon: () => <></> },
+      { title: "Vehicles", isActive: location.pathname === "/vehicles", url: "/vehicles", icon: () => <IconCar /> },
+      { title: "All Trips", isActive: location.pathname === "/trips", url: "/trips", icon: () => <IconRoute /> },
+      { title: "Schedules", isActive: location.pathname === "/schedules", url: "/schedules", icon: () => <IconAlarmClock /> }
     ]
   },[location.pathname])
   
@@ -105,9 +105,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroup>
             <SidebarGroupLabel
               asChild
-              className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              className="group/label gap-2 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             >
-              <CollapsibleTrigger className="gap-2">
+              <CollapsibleTrigger>
                 <IconSetting />
                 Setup{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
@@ -152,9 +152,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroup>
             <SidebarGroupLabel
               asChild
-              className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              className="group/label gap-2 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             >
               <CollapsibleTrigger>
+                <IconUsers />
                 User{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
@@ -182,7 +183,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
+                      <a href={item.url}>
+                        <item.icon />
+                        {item.title}
+                      </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
