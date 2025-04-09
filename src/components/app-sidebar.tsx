@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { ZenoLogo } from "./icons"
+import { IconAlarmClock, IconCar, IconDashboard, IconMap, IconRoute, IconSetting, IconUsers, ZenoLogo } from "./icons"
 import { useLocation } from "react-router-dom"
 import { useMemo } from "react"
 
@@ -38,7 +38,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         { title: "Riders", isActive: location.pathname === "/user/riders", url: "/user/riders" },
         { title: "Drivers", isActive: location.pathname === "/user/drivers", url: "/user/drivers" },
         { title: "Business Account", isActive: location.pathname === "/user/business-account", url: "/user/business-account" },
-        { title: "Asset Co", isActive: location.pathname === "/user/asset-co", url: "/user/asset-co" },
         { title: "Manage Users", isActive: location.pathname === "/user/users", url: "/user/users" },
       ],
       finance: [
@@ -57,9 +56,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   
   const vehicleTripScheduleRoutes = useMemo(() => {
     return [
-      { title: "Vehicles", isActive: location.pathname === "/vehicles", url: "/vehicles" },
-      { title: "All Trips", isActive: location.pathname === "/trips", url: "/trips" },
-      { title: "Schedules", isActive: location.pathname === "/schedules", url: "/schedules" }
+      { title: "Asset Co", isActive: location.pathname === "/asset-co", url: "/asset-co", icon: () => <></> },
+      { title: "Vehicles", isActive: location.pathname === "/vehicles", url: "/vehicles", icon: () => <IconCar /> },
+      { title: "All Trips", isActive: location.pathname === "/trips", url: "/trips", icon: () => <IconRoute /> },
+      { title: "Schedules", isActive: location.pathname === "/schedules", url: "/schedules", icon: () => <IconAlarmClock /> }
     ]
   },[location.pathname])
   
@@ -87,7 +87,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={location.pathname === "/dashboard"}>
-                  <a href="/dashboard">Dashboard</a>
+                  <a href="/dashboard">
+                    <IconDashboard />
+                    Dashboard
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -102,9 +105,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroup>
             <SidebarGroupLabel
               asChild
-              className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              className="group/label gap-2 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             >
               <CollapsibleTrigger>
+                <IconSetting />
                 Setup{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
@@ -130,7 +134,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={location.pathname === "/maps"}>
-                  <a href="/maps">Maps</a>
+                  <a href="/maps">
+                    <IconMap />
+                    Maps
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -145,9 +152,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroup>
             <SidebarGroupLabel
               asChild
-              className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              className="group/label gap-2 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             >
               <CollapsibleTrigger>
+                <IconUsers />
                 User{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
@@ -167,7 +175,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
-        {/* Vehicle, Trips, Schedules Routes */}
+        {/* Asset Co, Vehicle, Trips, Schedules Routes */}
         {
           vehicleTripScheduleRoutes.map((item) => (
             <SidebarGroup key={item.title}>
@@ -175,7 +183,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
+                      <a href={item.url}>
+                        <item.icon />
+                        {item.title}
+                      </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>

@@ -10,6 +10,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "curly": ["error", "all"],
     'no-redeclare': 0,
     eqeqeq: "off",
     curly: "error",
