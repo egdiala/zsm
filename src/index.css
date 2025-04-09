@@ -15,14 +15,12 @@
 }
 
 body {
-  @apply min-h-screen bg-grey-dark-1;
+  @apply min-h-screen bg-grey-dark-4;
 }
 
 #root {
   @apply min-h-screen;
 }
-
-
 
 @layer base {
   :root {
@@ -95,8 +93,6 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
-
-
 
 @layer base {
   * {
