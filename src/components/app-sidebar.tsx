@@ -38,7 +38,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         { title: "Riders", isActive: location.pathname === "/user/riders", url: "/user/riders" },
         { title: "Drivers", isActive: location.pathname === "/user/drivers", url: "/user/drivers" },
         { title: "Business Account", isActive: location.pathname === "/user/business-account", url: "/user/business-account" },
-        { title: "Asset Co", isActive: location.pathname === "/user/asset-co", url: "/user/asset-co" },
         { title: "Manage Users", isActive: location.pathname === "/user/users", url: "/user/users" },
       ],
       finance: [
@@ -57,6 +56,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   
   const vehicleTripScheduleRoutes = useMemo(() => {
     return [
+      { title: "Asset Co", isActive: location.pathname === "/asset-co", url: "/asset-co" },
       { title: "Vehicles", isActive: location.pathname === "/vehicles", url: "/vehicles" },
       { title: "All Trips", isActive: location.pathname === "/trips", url: "/trips" },
       { title: "Schedules", isActive: location.pathname === "/schedules", url: "/schedules" }
@@ -167,7 +167,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </CollapsibleContent>
           </SidebarGroup>
         </Collapsible>
-        {/* Vehicle, Trips, Schedules Routes */}
+        {/* Asset Co, Vehicle, Trips, Schedules Routes */}
         {
           vehicleTripScheduleRoutes.map((item) => (
             <SidebarGroup key={item.title}>
