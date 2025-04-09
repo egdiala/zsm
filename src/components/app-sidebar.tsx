@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { IconAlarmClock, IconCar, IconDashboard, IconMap, IconRoute, IconSetting, IconUsers, ZenoLogo } from "./icons"
+import { IconAlarmClock, IconBell, IconCar, IconDashboard, IconDownload, IconEmergency, IconFileText, IconMap, IconNairaBadge, IconPromo, IconRoute, IconSetting, IconSettingSetup, IconSpanner, IconSplit, IconUsers, ZenoLogo } from "./icons"
 import { useLocation } from "react-router-dom"
 import { useMemo } from "react"
 
@@ -65,13 +65,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   
   const lastRoutes = useMemo(() => {
     return [
-      { title: "VMR", isActive: location.pathname === "/vmr", url: "/vmr" },
-      { title: "Send Notifications", isActive: location.pathname === "/send-notifications", url: "/send-notifications" },
-      { title: "Emergency", isActive: location.pathname === "/emergency", url: "/emergency" },
-      { title: "Promo", isActive: location.pathname === "/promo", url: "/promo" },
-      { title: "Referrals", isActive: location.pathname === "/referrals", url: "/referrals" },
-      { title: "Download", isActive: location.pathname === "/download", url: "/download" },
-      { title: "Activity Log", isActive: location.pathname === "/activity-log", url: "/activity-log" },
+      { title: "VMR", isActive: location.pathname === "/vmr", url: "/vmr", icon: () => <IconSpanner /> },
+      { title: "Send Notifications", isActive: location.pathname === "/send-notifications", url: "/send-notifications", icon: () => <IconBell /> },
+      { title: "Emergency", isActive: location.pathname === "/emergency", url: "/emergency", icon: () => <IconEmergency /> },
+      { title: "Promo", isActive: location.pathname === "/promo", url: "/promo", icon: () => <IconPromo /> },
+      { title: "Referrals", isActive: location.pathname === "/referrals", url: "/referrals", icon: () => <IconSplit /> },
+      { title: "Download", isActive: location.pathname === "/download", url: "/download", icon: () => <IconDownload /> },
+      { title: "Activity Log", isActive: location.pathname === "/activity-log", url: "/activity-log", icon: () => <IconFileText /> },
     ]
   },[location.pathname])
 
@@ -203,9 +203,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroup>
             <SidebarGroupLabel
               asChild
-              className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              className="group/label gap-2 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             >
               <CollapsibleTrigger>
+                <IconNairaBadge />
                 Finance{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
@@ -234,9 +235,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroup>
             <SidebarGroupLabel
               asChild
-              className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              className="group/label gap-2 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             >
               <CollapsibleTrigger>
+                <IconSettingSetup />
                 Operations{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
@@ -264,7 +266,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
+                      <a href={item.url}>
+                        <item.icon />
+                        {item.title}
+                      </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
