@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { IconAlarmClock, IconBell, IconCar, IconDashboard, IconDownload, IconEmergency, IconMap, IconNairaBadge, IconPromo, IconRoute, IconSetting, IconSettingSetup, IconSpanner, IconSplit, IconUsers, ZenoLogo } from "./icons"
+import { IconAlarmClock, IconBell, IconCar, IconDashboard, IconDownload, IconEmergency, IconFileText, IconMap, IconNairaBadge, IconPromo, IconRoute, IconSetting, IconSettingSetup, IconSpanner, IconSplit, IconUsers, ZenoLogo } from "./icons"
 import { useLocation } from "react-router-dom"
 import { useMemo } from "react"
 
@@ -71,7 +71,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       { title: "Promo", isActive: location.pathname === "/promo", url: "/promo", icon: () => <IconPromo /> },
       { title: "Referrals", isActive: location.pathname === "/referrals", url: "/referrals", icon: () => <IconSplit /> },
       { title: "Download", isActive: location.pathname === "/download", url: "/download", icon: () => <IconDownload /> },
-      { title: "Activity Log", isActive: location.pathname === "/activity-log", url: "/activity-log", icon: () => <IconCar /> },
+      { title: "Activity Log", isActive: location.pathname === "/activity-log", url: "/activity-log", icon: () => <IconFileText /> },
     ]
   },[location.pathname])
 
