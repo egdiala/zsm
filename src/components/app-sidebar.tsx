@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { ZenoLogo } from "./icons"
+import { IconDashboard, IconMap, IconSetting, ZenoLogo } from "./icons"
 import { useLocation } from "react-router-dom"
 import { useMemo } from "react"
 
@@ -87,7 +87,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={location.pathname === "/dashboard"}>
-                  <a href="/dashboard">Dashboard</a>
+                  <a href="/dashboard">
+                    <IconDashboard />
+                    Dashboard
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -104,7 +107,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             >
-              <CollapsibleTrigger>
+              <CollapsibleTrigger className="gap-2">
+                <IconSetting />
                 Setup{" "}
                 <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
@@ -130,7 +134,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={location.pathname === "/maps"}>
-                  <a href="/maps">Maps</a>
+                  <a href="/maps">
+                    <IconMap />
+                    Maps
+                  </a>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
