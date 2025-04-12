@@ -14,6 +14,8 @@ const UserRoutes = () => {
       <Route path="roles/create" element={<CreateRolePage />} />
       <Route path="roles/view" element={<ViewRolePage />} />
       <Route path="accounts" element={<AdminAccountsPage />} />
+      {/* Riders */}
+      <Route path="user/riders" element={<ViewRolePage />} />
     </Routes>
   );
 };
