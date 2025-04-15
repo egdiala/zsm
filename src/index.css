@@ -15,7 +15,7 @@
 }
 
 body {
-  @apply min-h-screen bg-grey-dark-4;
+  @apply min-h-screen bg-grey-dark-4/60;
 }
 
 #root {

@@ -28,50 +28,50 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const nestedRoutes = useMemo(() => {
     return {
       setup: [
-        { title: "Asset Co", isActive: location.pathname === "/setup/asset-co", url: "/setup/asset-co" },
-        { title: "Price Category", isActive: location.pathname === "/setup/price-category", url: "/setup/price-category" },
-        { title: "Cost Points & Fees", isActive: location.pathname === "/setup/fees", url: "/setup/fees" },
-        { title: "Geo-Settings", isActive: location.pathname === "/setup/geo-settings", url: "/setup/geo-settings" },
-        { title: "Manage Team", isActive: location.pathname === "/setup/team", url: "/setup/team" },
+        { title: "Asset Co", isActive: location.pathname.startsWith("/setup/asset-co"), url: "/setup/asset-co" },
+        { title: "Price Category", isActive: location.pathname.startsWith("/setup/price-category"), url: "/setup/price-category" },
+        { title: "Cost Points & Fees", isActive: location.pathname.startsWith("/setup/fees"), url: "/setup/fees" },
+        { title: "Geo-Settings", isActive: location.pathname.startsWith("/setup/geo-settings"), url: "/setup/geo-settings" },
+        { title: "Manage Team", isActive: location.pathname.startsWith("/setup/team"), url: "/setup/team" },
       ],
       user: [
-        { title: "Riders", isActive: location.pathname === "/user/riders", url: "/user/riders" },
-        { title: "Drivers", isActive: location.pathname === "/user/drivers", url: "/user/drivers" },
-        { title: "Business Account", isActive: location.pathname === "/user/business-account", url: "/user/business-account" },
-        { title: "Manage Users", isActive: location.pathname === "/user/users", url: "/user/users" },
+        { title: "Riders", isActive: location.pathname.startsWith("/user/riders"), url: "/user/riders" },
+        { title: "Drivers", isActive: location.pathname.startsWith("/user/drivers"), url: "/user/drivers" },
+        { title: "Business Account", isActive: location.pathname.startsWith("/user/business-account"), url: "/user/business-account" },
+        { title: "Manage Users", isActive: location.pathname.startsWith("/user/users"), url: "/user/users" },
       ],
       finance: [
-        { title: "Trips Payment", isActive: location.pathname === "/finance/trip-payments", url: "/finance/trip-payments" },
-        { title: "Wallet", isActive: location.pathname === "/finance/wallet", url: "/finance/wallet" },
-        { title: "Revenue", isActive: location.pathname === "/finance/revenue", url: "/finance/revenue" },
-        { title: "Receivables", isActive: location.pathname === "/finance/receivables", url: "/finance/receivables" },
-        { title: "Reconciliation", isActive: location.pathname === "/finance/reconciliation", url: "/finance/reconciliation" },
-        { title: "Disbursement", isActive: location.pathname === "/finance/disbursement", url: "/finance/disbursement" },
+        { title: "Trips Payment", isActive: location.pathname.startsWith("/finance/trip-payments"), url: "/finance/trip-payments" },
+        { title: "Wallet", isActive: location.pathname.startsWith("/finance/wallet"), url: "/finance/wallet" },
+        { title: "Revenue", isActive: location.pathname.startsWith("/finance/revenue"), url: "/finance/revenue" },
+        { title: "Receivables", isActive: location.pathname.startsWith("/finance/receivables"), url: "/finance/receivables" },
+        { title: "Reconciliation", isActive: location.pathname.startsWith("/finance/reconciliation"), url: "/finance/reconciliation" },
+        { title: "Disbursement", isActive: location.pathname.startsWith("/finance/disbursement"), url: "/finance/disbursement" },
       ],
       operations: [
-        { title: "Business Performance", isActive: location.pathname === "/operations/business-performance", url: "/operations/business-performance" }
+        { title: "Business Performance", isActive: location.pathname.startsWith("/operations/business-performance"), url: "/operations/business-performance" }
       ]
     }
   }, [location.pathname])
   
   const vehicleTripScheduleRoutes = useMemo(() => {
     return [
-      { title: "Asset Co", isActive: location.pathname === "/asset-co", url: "/asset-co", icon: () => <></> },
-      { title: "Vehicles", isActive: location.pathname === "/vehicles", url: "/vehicles", icon: () => <IconCar /> },
-      { title: "All Trips", isActive: location.pathname === "/trips", url: "/trips", icon: () => <IconRoute /> },
-      { title: "Schedules", isActive: location.pathname === "/schedules", url: "/schedules", icon: () => <IconAlarmClock /> }
+      { title: "Asset Co", isActive: location.pathname.startsWith("/asset-co"), url: "/asset-co", icon: () => <></> },
+      { title: "Vehicles", isActive: location.pathname.startsWith("/vehicles"), url: "/vehicles", icon: () => <IconCar /> },
+      { title: "All Trips", isActive: location.pathname.startsWith("/trips"), url: "/trips", icon: () => <IconRoute /> },
+      { title: "Schedules", isActive: location.pathname.startsWith("/schedules"), url: "/schedules", icon: () => <IconAlarmClock /> }
     ]
   },[location.pathname])
   
   const lastRoutes = useMemo(() => {
     return [
-      { title: "VMR", isActive: location.pathname === "/vmr", url: "/vmr", icon: () => <IconSpanner /> },
-      { title: "Send Notifications", isActive: location.pathname === "/send-notifications", url: "/send-notifications", icon: () => <IconBell /> },
-      { title: "Emergency", isActive: location.pathname === "/emergency", url: "/emergency", icon: () => <IconEmergency /> },
-      { title: "Promo", isActive: location.pathname === "/promo", url: "/promo", icon: () => <IconPromo /> },
-      { title: "Referrals", isActive: location.pathname === "/referrals", url: "/referrals", icon: () => <IconSplit /> },
-      { title: "Download", isActive: location.pathname === "/download", url: "/download", icon: () => <IconDownload /> },
-      { title: "Activity Log", isActive: location.pathname === "/activity-log", url: "/activity-log", icon: () => <IconFileText /> },
+      { title: "VMR", isActive: location.pathname.startsWith("/vmr"), url: "/vmr", icon: () => <IconSpanner /> },
+      { title: "Send Notifications", isActive: location.pathname.startsWith("/send-notifications"), url: "/send-notifications", icon: () => <IconBell /> },
+      { title: "Emergency", isActive: location.pathname.startsWith("/emergency"), url: "/emergency", icon: () => <IconEmergency /> },
+      { title: "Promo", isActive: location.pathname.startsWith("/promo"), url: "/promo", icon: () => <IconPromo /> },
+      { title: "Referrals", isActive: location.pathname.startsWith("/referrals"), url: "/referrals", icon: () => <IconSplit /> },
+      { title: "Download", isActive: location.pathname.startsWith("/download"), url: "/download", icon: () => <IconDownload /> },
+      { title: "Activity Log", isActive: location.pathname.startsWith("/activity-log"), url: "/activity-log", icon: () => <IconFileText /> },
     ]
   },[location.pathname])
 

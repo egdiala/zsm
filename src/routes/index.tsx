@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { AuthRoutes, UserRoutes } from "./modules";
 import AuthLayout from "@/layouts/AuthLayout";
-import ProtectedLayout from "@/layouts/ProtectedLayout";
 import { AnimatePresence } from "framer-motion";
+import ProtectedLayout from "@/layouts/ProtectedLayout";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { AuthRoutes, UserRoutes, VehiclesRoutes } from "./modules";
 
 
 function LocationProvider({ children }: { children: ReactNode }) {
@@ -16,6 +16,7 @@ const Router = () => {
             <Routes>
                 <Route path="/*" element={<ProtectedLayout><LocationProvider><UserRoutes /></LocationProvider></ProtectedLayout>} />
                 <Route path="auth/*" element={<AuthLayout><LocationProvider><AuthRoutes /></LocationProvider></AuthLayout>} />
+                <Route path="vehicles/*" element={<ProtectedLayout><LocationProvider><VehiclesRoutes /></LocationProvider></ProtectedLayout>} />
             </Routes>
         </BrowserRouter>
     );
