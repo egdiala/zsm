@@ -1,6 +1,6 @@
 import React, { type ReactNode } from "react";
 import { cn } from "@/libs/cn";
-import "./tableAction.css"
+import "./tableAction.css";
 import "./../Button/button.css";
 
 interface TableActionProps extends React.HTMLAttributes<HTMLButtonElement> {
@@ -25,13 +25,7 @@ interface TableActionProps extends React.HTMLAttributes<HTMLButtonElement> {
 /**
  * Table Action component for user interaction
  */
-export const TableAction: React.FC<TableActionProps> = ({
-  className,
-  block,
-  theme,
-  children,
-  ...props
-}) => {
+export const TableAction: React.FC<TableActionProps> = ({ className, block, theme, children, ...props }) => {
   const btn = {
     themes: {
       primary: "zsm-table-action--primary",
@@ -43,10 +37,10 @@ export const TableAction: React.FC<TableActionProps> = ({
   };
 
   const width = block && "zsm-button--block";
-  
+
   return (
     <button className={cn("w-fit", "zsm-button", btn.themes[theme as keyof typeof btn.themes], width, className)} {...props}>
-{       children}
+      {children}
     </button>
   );
 };
