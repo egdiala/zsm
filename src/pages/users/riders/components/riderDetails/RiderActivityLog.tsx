@@ -103,7 +103,8 @@ const RiderActivityLog = (props: Props) => {
       type: "Deleted",
       body: "Lorem ipsum dolor sit amet consectetur. Mauris id egestas dui viverra commodo in odio sed placeestas quis in metus. Viverra nulla pellentesque eu orci nulla molestie conguenas lectus tempus viverra.",
       dateTime: "2nd July, 2023  •  10:43pm",
-      author: "James",
+        author: "James",
+      
     },
   ];
 
