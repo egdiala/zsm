@@ -7,3 +7,4 @@ export * from "./RadioButton";
 export * from "./RenderIf";
 export * from "./TableActions"
 export * from "./Textarea";
+export * from "./Select";

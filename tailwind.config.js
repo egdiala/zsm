@@ -23,6 +23,7 @@ export default {
 				semantics: {
 					red: "#FF3739",
 					amber: "#FE9603",
+					success: "#009B10",
 					"red-light": "#FFEEEE",
 					"amber-light": "#FFF6E9"
 				},

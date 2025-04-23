@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import type { IconifyIcon } from "@iconify/types";
 import { RenderIf } from "../RenderIf";
 import "./input.css";
+import { cn } from "@/libs/cn";
 
 interface InputProps extends React.AllHTMLAttributes<HTMLInputElement> {
   /**
@@ -34,45 +35,45 @@ interface InputProps extends React.AllHTMLAttributes<HTMLInputElement> {
 /**
  * Input component for entering user data
  */
-export const Input: React.FC<InputProps> = (props) => {
+export const Input: React.FC<InputProps> = ({className, label, error, optional, iconRight, iconLeft, ...props}) => {
   return (
     <div className="zsm-input--outer">
-      <RenderIf condition={!!props?.label}>
+      <RenderIf condition={!!label}>
         <div className="text-sm tracking-custom flex items-center">
           <label htmlFor={props?.name} className="zsm-input--label">
-            {props?.label}
+            {label}
           </label>
-          {!!props?.optional && (
+          {!!optional && (
             <span className="font-normal text-[#A2AAA9] ml-1">(Optional)</span>
           )}
         </div>
       </RenderIf>
       <div className="zsm-input--inner">
-        <RenderIf condition={!!props?.iconLeft}>
+        <RenderIf condition={!!iconLeft}>
           <Icon
-            icon={props?.iconLeft as string | IconifyIcon}
-            className="size-5 left-3 text-neutral-base mt-[13px] inset-x-0 absolute z-10"
+            icon={iconLeft as string | IconifyIcon}
+            className="size-5 left-3 text-grey-dark-3 mt-2.5 inset-x-0 absolute z-10"
           />
         </RenderIf>
         <input
-          className={[
-            "zsm-input",
-            props?.iconLeft ? "pl-10" : "pl-4",
-            props?.iconRight ? "pr-10" : "pr-4",
+          className={cn([
+            "zsm-input peer",
+            iconLeft ? "pl-10" : "pl-4",
+            iconRight ? "pr-10" : "pr-4",
           ]
             .join(" ")
-            .trim()}
+            .trim(), className)}
           {...props}
         />
-        <RenderIf condition={!!props?.iconRight}>
+        <RenderIf condition={!!iconRight}>
           <Icon
-            icon={props?.iconRight as string | IconifyIcon}
-            className="size-5 right-3 text-neutral-base -mt-[34px] absolute z-10"
+            icon={iconRight as string | IconifyIcon}
+            className="size-5 right-3 text-grey-dark-3 -mt-[34px] absolute z-10"
           />
         </RenderIf>
       </div>
-      <RenderIf condition={!!props?.error}>
-        <span className="zsm-input--error">{props?.error}</span>
+      <RenderIf condition={!!error}>
+        <span className="zsm-input--error">{error}</span>
       </RenderIf>
     </div>
   );
