@@ -31,14 +31,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 /**
  * Button component for user interaction
  */
-export const Button: React.FC<ButtonProps> = ({
-  className,
-  loading,
-  block,
-  theme,
-  children,
-  ...props
-}) => {
+export const Button: React.FC<ButtonProps> = ({ className, loading, block, theme, children, ...props }) => {
   const btn = {
     themes: {
       primary: "zsm-button--primary",
@@ -48,25 +41,25 @@ export const Button: React.FC<ButtonProps> = ({
       white: "zsm-button--white",
       ghost: "zsm-button--ghost",
       "arrow-cta-1": "zsm-button--arrow-cta-1",
-      "arrow-cta-2": "zsm-button--arrow-cta-2"
+      "arrow-cta-2": "zsm-button--arrow-cta-2",
     },
   };
 
   const width = block && "zsm-button--block";
-  
+
   return (
     <button className={cn("w-fit", "zsm-button", btn.themes[theme as keyof typeof btn.themes], width, className)} {...props}>
-        <RenderIf condition={loading!}>
-            <div className="flex items-center justify-center">
-                <Loader className="spinner" />
-            </div>
+      <RenderIf condition={loading!}>
+        <div className="flex items-center justify-center">
+          <Loader className="spinner" />
+        </div>
+      </RenderIf>
+      <RenderIf condition={!loading}>
+        {children}
+        <RenderIf condition={theme?.startsWith("arrow-cta-")!}>
+          <Icon icon="radix-icons:arrow-top-right" className="size-6 text-green" />
         </RenderIf>
-        <RenderIf condition={!loading}>
-            {children}
-            <RenderIf condition={theme?.startsWith("arrow-cta-")!}>
-              <Icon icon="radix-icons:arrow-top-right" className="size-6 text-green" />
-            </RenderIf>
-        </RenderIf>
+      </RenderIf>
     </button>
   );
 };
