@@ -334,7 +334,7 @@ export const months = [
 ];
 
 const startYear = 2015;
-const yearsList = Array.from({ length: thisYear - startYear }, (val, index) => startYear + index + 1);
+const yearsList = Array.from({ length: thisYear - startYear }, (_val, index) => startYear + index + 1);
 
 export const years = yearsList.map((item) => ({
   label: `${item}`,
@@ -368,11 +368,11 @@ export const getLabelsFromDatetype = (dateType: string, startDate: string, endDa
     endYear = endDate.split("-")[0];
 
     if (dateType === "daily") {
-      labels = Array.from({ length: 31 }, (val, index) => index + 1);
+      labels = Array.from({ length: 31 }, (_val, index) => index + 1);
     } else if (dateType === "monthly") {
       labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Dec"];
     } else if (dateType === "yearly") {
-      labels = Array.from({ length: parseInt(endYear) + 1 - parseInt(startYear) }, (val, index) => parseInt(startYear) + index);
+      labels = Array.from({ length: parseInt(endYear) + 1 - parseInt(startYear) }, (_val, index) => parseInt(startYear) + index);
     }
   }
 
