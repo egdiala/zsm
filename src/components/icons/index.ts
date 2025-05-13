@@ -1,5 +1,6 @@
 export * from "./icon-alarm-clock"
 export * from "./icon-bell"
+export * from "./icon-caar"
 export * from "./icon-car"
 export * from "./icon-cloud-upload"
 export * from "./icon-dashboard"

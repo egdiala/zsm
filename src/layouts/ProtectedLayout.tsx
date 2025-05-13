@@ -2,9 +2,18 @@ import type { PropsWithChildren } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { isAuthenticated } from "@/utils/auth-util";
+import { Navigate } from "react-router-dom";
 // import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 const ProtectedLayout = ({ children }: PropsWithChildren) => {
+    const isLoggedIn = isAuthenticated();
+
+    if (!isLoggedIn) {
+        localStorage.clear();
+        return <Navigate to="/auth/login" replace />;
+    }
+    
     return (
         <SidebarProvider>
             <AppSidebar />

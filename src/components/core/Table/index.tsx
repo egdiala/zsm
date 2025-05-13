@@ -1,13 +1,6 @@
 import React from "react";
 
-import {
-  ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  getSortedRowModel,
-  SortingState,
-  useReactTable,
-} from "@tanstack/react-table";
+import { ColumnDef, flexRender, getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from "@tanstack/react-table";
 import { Icon } from "@iconify/react";
 import { Pagination, RenderIf } from "..";
 import { EmptyState } from "./EmptyState";
@@ -29,19 +22,7 @@ interface TableProps {
   onPageChange: (page: number, rowsPerPage: number) => void; // handle pagination change
 }
 
-export const Table: React.FC<TableProps> = ({
-  columns,
-  data,
-  page = 1,
-  perPage = 10,
-  loading = false,
-  getData,
-  totalCount,
-  emptyStateText = "",
-  onPageChange,
-  onClick = () => {},
-  paginateData = true,
-}) => {
+export const Table: React.FC<TableProps> = ({ columns, data, page = 1, perPage = 10, loading = false, getData, totalCount, emptyStateText = "", onPageChange, onClick = () => {}, paginateData = true }) => {
   const location = useLocation();
 
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -95,18 +76,12 @@ export const Table: React.FC<TableProps> = ({
   }, [location.search]);
 
   return (
-    <div
-      data-testid="table-component"
-      className="min-h-40vh w-full h-full border border-neutral-10 rounded-lg"
-    >
+    <div data-testid="table-component" className="min-h-40vh w-full h-full border border-neutral-10 rounded-lg">
       <table className="font-cabin w-full h-full">
         {/* Table Head */}
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr
-              key={headerGroup.id}
-              className="w-full flex justify-between items-center px-6 py-3 border-b border-b-neutral-10 rounded-t-lg bg-neutral-variant cursor-pointer"
-            >
+            <tr key={headerGroup.id} className="w-full flex justify-between items-center px-6 py-3 border-b border-b-neutral-10 rounded-t-lg bg-neutral-variant cursor-pointer">
               {headerGroup.headers.map((header, index) => {
                 return (
                   <th
@@ -121,39 +96,15 @@ export const Table: React.FC<TableProps> = ({
                     {header.isPlaceholder ? null : (
                       <td
                         className={`w-full flex items-center gap-[2px] text-left
-                          ${
-                            header.column.getCanSort()
-                              ? "cursor-pointer select-none"
-                              : ""
-                          }
+                          ${header.column.getCanSort() ? "cursor-pointer select-none" : ""}
                         `}
-                        onClick={
-                          index === 0
-                            ? header.column.getToggleSortingHandler()
-                            : () => {}
-                        }
-                        title={
-                          header.column.getCanSort()
-                            ? header.column.getNextSortingOrder() === "asc"
-                              ? "Sort ascending"
-                              : header.column.getNextSortingOrder() === "desc"
-                                ? "Sort descending"
-                                : "Clear sort"
-                            : undefined
-                        }
+                        onClick={index === 0 ? header.column.getToggleSortingHandler() : () => {}}
+                        title={header.column.getCanSort() ? (header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort") : undefined}
                       >
-                        <span className="text-left text-neutral-80 text-sm font-bold leading-[21px] tracking-[0.14px]">
-                          {flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                        </span>
+                        <span className="text-left text-neutral-80 text-sm font-bold leading-[21px] tracking-[0.14px]">{flexRender(header.column.columnDef.header, header.getContext())}</span>
 
                         <RenderIf condition={index === 0}>
-                          <Icon
-                            icon="ph:caret-up-down-fill"
-                            className="text-neutral-40"
-                          />
+                          <Icon icon="ph:caret-up-down-fill" className="text-neutral-40" />
                         </RenderIf>
                       </td>
                     )}
@@ -173,11 +124,7 @@ export const Table: React.FC<TableProps> = ({
           <tbody>
             {table.getRowModel().rows.map((row) => {
               return (
-                <tr
-                  key={row.id}
-                  onClick={() => onClick(row)}
-                  className="w-full flex justify-between items-center px-6 py-4 border-b border-b-neutral-10"
-                >
+                <tr key={row.id} onClick={() => onClick(row)} className="w-full flex justify-between items-center px-6 py-4 border-b border-b-neutral-10">
                   {row.getVisibleCells().map((cell) => {
                     return (
                       <td
@@ -185,18 +132,12 @@ export const Table: React.FC<TableProps> = ({
                         className="w-full text-left text-neutral-base text-sm font-normal leading-[21px] tracking-[0.14px] break-words"
                         style={{ width: `${cell.column.getSize()}px` }}
                         onClick={(e) => {
-                          if (
-                            cell.column.id === "action" ||
-                            cell.column.id === "status"
-                          ) {
+                          if (cell.column.id === "action" || cell.column.id === "status") {
                             e.stopPropagation();
                           }
                         }}
                       >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </td>
                     );
                   })}
@@ -206,22 +147,13 @@ export const Table: React.FC<TableProps> = ({
           </tbody>
         ) : (
           <tbody className="flex items-center justify-center">
-            <EmptyState
-              emptyStateText={emptyStateText}
-            />
+            <EmptyState emptyStateText={emptyStateText} />
           </tbody>
         )}
 
         <RenderIf condition={paginateData && data.length > 0 && !loading}>
           <tfoot>
-            <Pagination
-              className="px-6 py-3"
-              currentPage={currentPage}
-              totalPages={Math.ceil((totalCount as number) / rowsPerPage)}
-              prev={prev}
-              next={next}
-              goToPage={(v) => goToPage(Number(v))}
-            />
+            <Pagination className="px-6 py-3" currentPage={currentPage} totalPages={Math.ceil((totalCount as number) / rowsPerPage)} prev={prev} next={next} goToPage={(v) => goToPage(Number(v))} />
           </tfoot>
         </RenderIf>
       </table>

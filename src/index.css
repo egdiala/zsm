@@ -1,3 +1,5 @@
+@import url("./utilities.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +9,6 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "slnt" 0;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,7 +16,7 @@
 }
 
 body {
-  @apply min-h-screen bg-grey-dark-4;
+  @apply min-h-screen bg-grey-dark-4/60;
 }
 
 #root {
