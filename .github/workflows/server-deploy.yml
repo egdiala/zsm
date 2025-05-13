@@ -1,0 +1,29 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # or your desired branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.INC_SSH_KEY }}
+
+    - name: Deploy files to server #Deplying the file to the system
+      run: |
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.ZENO_DEVSSH_USER }}@${{ secrets.ZENO_DEVSSH_HOST }} << 'EOF'
+          sudo su  # This switches to root
+          cd /var/www/zsmadmin-dash
+          git pull
+          npm i 
+          npm run build
+        EOF
